@@ -1,0 +1,2 @@
+Name Zahar, age 45 student_id 213512t123
+Name Sanya, age 20 student_id 213512t124
