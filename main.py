@@ -57,8 +57,28 @@ class Animal:
         else:
             print(self.name, 'голодний')
     def play(self):
-        pass
+        if self.happiness >= 5:
+            self.health += random.randint(0, 5)
+            self.hunger += random.randint(0, 5)
+            self.happiness += random.randint(0, 5)
+        else:
+            print(self.name, 'does not want to play')
+    def __str__(self):
+        return f'{self.species} - {self.name} ({self.age} years old)\n' \
+               f'Health: {self.health}\nHunger: {self.hunger}\nHappiness: {self.happiness}\n'
+
 class Zoo:
     def __init__(self):
         super().__init__()
         self.animals = []
+
+#Simulating 10 day
+for i in range(1, 11):
+    print(f'Day {i}')
+    save_zoo_state(zoo, i)
+    zoo.feed_all()
+    zoo.play_with(zoo.animals[random.randint(0, len(zoo.animals) - 1)])
+    zoo.geow_all()
+    print(zoo)
+    print('\n')
+print('Simulation finished.')
